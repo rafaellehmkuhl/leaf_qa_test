@@ -1,6 +1,7 @@
 import requests
+import os
 
-TOKEN = 'YOUR_TOKEN'
+TOKEN = os.environ['LEAF_TOKEN']
 
 endpoint = 'https://api.withleaf.io/services/fields/api/fields'
 headers = {'Authorization': f'Bearer {TOKEN}'}
