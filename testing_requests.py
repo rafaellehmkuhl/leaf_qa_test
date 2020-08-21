@@ -2,7 +2,18 @@ import requests
 import os
 from pprint import pprint
 
-TOKEN = os.environ['LEAF_TOKEN']
+EMAIL = os.environ['LEAF_EMAIL']
+PASS = os.environ['LEAF_PASS']
+
+auth_url = "https://api.withleaf.io/api/authenticate"
+auth_data = {f'username': 'rafael.lehmkuhl93@gmail.com',
+             'password': 'Q2xu5Co46Zz^',
+             'rememberMe': 'true'}
+headers = {'Content-Type': 'application/json'}
+auth_response = requests.request(
+    "POST", auth_url, headers=headers, json=auth_data)
+TOKEN = auth_response.json().get('id_token')
+
 headers = {'Authorization': f'Bearer {TOKEN}'}
 base_url = 'https://api.withleaf.io/services/fields/api'
 
