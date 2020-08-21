@@ -11,7 +11,7 @@ response_get = requests.get(get_endpoint, headers=headers)
 
 leafUserId = response_get.json()[0].get('leafUserId')
 post_endpoint = f'{base_url}/users/{leafUserId}/fields/'
-response_post = requests.post(get_endpoint, headers=headers)
+response_post = requests.post(post_endpoint, headers=headers)
 
 print('\n GET REQUEST: \n')
 pprint(response_get.json())
