@@ -22,13 +22,11 @@ def test_valid_coords():
 
 
 def test_unclosed_coords():
-    field_id = fake.uuid4()
     coords = [[[[-1.0, -1.0],
                 [-1.0, +1.0],
                 [+1.0, +1.0],
                 [+1.0, -1.0]]]]
     body = {
-        "id": field_id,
         "geometry": {
             "type": "MultiPolygon",
             "coordinates": coords
@@ -42,14 +40,12 @@ def test_unclosed_coords():
 
 
 def test_crossing_coords():
-    field_id = fake.uuid4()
     coords = [[[[-1.0, -1.0],
                 [-1.0, +1.0],
                 [+1.0, -1.0],
                 [+1.0, +1.0],
                 [-1.0, -1.0]]]]
     body = {
-        "id": field_id,
         "geometry": {
             "type": "MultiPolygon",
             "coordinates": coords
