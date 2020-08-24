@@ -28,6 +28,7 @@ def test_for_existing_field():
     pprint(response)
     pprint(response.json())
     assert(response.status_code == 200)
-    found_field = next((True for item in response.json() if
-                        item.get('geometry').get('coordinates') == coords), False)
+    found_field = next((item for item in response.json() if
+                        item.get('geometry').get('coordinates') == valid_coords), False)
     assert(found_field)
+    assert(found_field.get('id') == valid_field_id)
