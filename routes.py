@@ -32,3 +32,10 @@ def post_field(token, body):
     post_endpoint = f'{base_url}/users/{leafUserId}/fields/'
     headers = get_header(token)
     return requests.post(post_endpoint, headers=headers, json=body)
+
+
+def delete_fields(token, id):
+    leafUserId = get_user_Id(token)
+    delete_endpoint = f'{base_url}/users/{leafUserId}/fields/{id}'
+    headers = get_header(token)
+    requests.delete(delete_endpoint, headers=headers)
