@@ -27,7 +27,7 @@ def get_fields(token, params=None):
     return requests.get(get_endpoint, headers=headers, params=params)
 
 
-def post_fields(token, body):
+def post_field(token, body):
     leafUserId = get_user_Id(token)
     post_endpoint = f'{base_url}/users/{leafUserId}/fields/'
     headers = get_header(token)
