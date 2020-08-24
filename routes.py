@@ -21,10 +21,10 @@ def get_header(token):
     return {'Authorization': f'Bearer {token}'}
 
 
-def get_fields(token):
+def get_fields(token, params=None):
     get_endpoint = f'{base_url}/fields'
     headers = get_header(token)
-    return requests.get(get_endpoint, headers=headers)
+    return requests.get(get_endpoint, headers=headers, params=params)
 
 
 def post_fields(token, body):
