@@ -173,3 +173,5 @@
     4.  Valid GET with existing userId, testing for the userId value (integration with POST)
     5.  Valid GET with unexisting userId, testing for empty fields list
     6.  Valid GET with existing field, testing for existence of field (integration with POST)
+18. Tests are working as expected, besides the inconsistency in error messages and query filtering;
+19. Added tox file to manage the tests and travis file to automatize them on push;
