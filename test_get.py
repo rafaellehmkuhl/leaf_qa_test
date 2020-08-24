@@ -1,15 +1,6 @@
-import os
-from faker import Faker
 from pprint import pprint
-from routes import get_fields, get_token, get_user_Id
-
-fake = Faker()
-Faker.seed(4321)
-
-EMAIL = os.environ['LEAF_EMAIL']
-PASS = os.environ['LEAF_PASS']
-TOKEN = get_token(EMAIL, PASS)
-USER_ID = get_user_Id(TOKEN)
+from conftest import EMAIL, PASS, TOKEN, USER_ID, valid_coords, valid_field_id
+from routes import get_fields
 
 
 def test_for_existing_user_id():
@@ -33,12 +24,6 @@ def test_for_unexisting_user_id():
 
 
 def test_for_existing_field():
-    field_id = fake.uuid4()
-    coords = [[[[-1.0, -1.0],
-                [-1.0, +1.0],
-                [+1.0, +1.0],
-                [+1.0, -1.0],
-                [-1.0, -1.0]]]]
     response = get_fields(TOKEN)
     pprint(response)
     pprint(response.json())
